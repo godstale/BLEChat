@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hardcopy.blechat"
+    android:versionCode="1"
+    android:versionName="1.0.1" >
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="18" />
+    
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <!-- Activity -->
+        <activity
+            android:name="com.hardcopy.blechat.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="com.hardcopy.blechat.DeviceListActivity"
+                  android:label="@string/select_device"
+                  android:theme="@android:style/Theme.Dialog"
+                  android:configChanges="keyboardHidden|orientation|screenSize" >
+        </activity>
+        
+        <!-- Service -->
+        <service
+            android:name="com.hardcopy.blechat.service.BTCTemplateService"
+            android:icon="@drawable/ic_launcher"
+            android:label= "@string/service_name"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+        </service>
+        
+        <!-- Broadcast receiver -->
+        <receiver android:name="com.hardcopy.blechat.service.ServiceMonitoring$ServiceMonitoringBR" />
+        
+    </application>
+
+</manifest>
