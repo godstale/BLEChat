@@ -7,3 +7,6 @@ BT chatting between arduino and android. (supports IoT feature)
 Whenever BTChat find message like : thingspeak:key=xxx&field1=xxx[*] 
 
 Automatically sends a HTTP Request : http://184.106.153.149/update?key=xxx&field1=xxx
+
+
+License : GPL v3.0
